@@ -64,8 +64,27 @@ class ListaDobleEnlazada():
 
 
         
-    def eliminar():
-        pass
+    def eliminar(self, dato):
+        actual = self.primero
+
+        while actual:
+            if actual:
+                if actual.dato == dato:
+
+                    if actual.anterior:
+                        actual.anterior.siguiente = actual.siguiente
+                    else:
+                        self.primero = actual.siguiente
+
+                    if actual.siguiente:
+                        actual.siguiente.anterior = actual.anterior
+                    else:
+                        self.ultimo = actual.anterior
+                    
+                    print("Eliminado")
+                    return
+            actual = actual.siguiente
+
 
 
 # ── Prueba ──────────────────────────────────────────────
@@ -81,7 +100,8 @@ lista.recorrer_adelante()  # Salida esperada: 10, 20, 30
 print("Recorrido atras")
 lista.recorrer_atras()
 
-print("Buscar 20: ")
-lista.buscar("A")
-
-    
+print("Eliminar A: ")
+lista.eliminar("A")
+print("Recorrido Adelante")
+lista.recorrer_adelante()  # Salida esperada: 10, 20, 30
+ 
