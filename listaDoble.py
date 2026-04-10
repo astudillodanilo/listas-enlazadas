@@ -43,11 +43,27 @@ class ListaDobleEnlazada():
         
         print()   # Línea en blanco al terminar el recorrido
     
-    def recorrer_atras():
-        pass
+    def recorrer_atras(self):
+        actual = self.ultimo
 
-    def buscar():
-        pass
+        while actual:
+            print(actual.dato)
+            actual = actual.anterior
+
+        print()
+
+    def buscar(self,dato):
+        actual = self.primero
+        while actual:
+            if actual.dato == dato:
+                print("Encontrado")
+                return 
+            actual = actual.siguiente 
+        print("No encontrado")
+
+
+
+        
     def eliminar():
         pass
 
@@ -55,11 +71,17 @@ class ListaDobleEnlazada():
 # ── Prueba ──────────────────────────────────────────────
 lista = ListaDobleEnlazada()
 
-lista.agregar_final(10)   # Lista: 10
-lista.agregar_final(20)   # Lista: 10 ↔ 20
-lista.agregar_final(30)   # Lista: 10 ↔ 20 ↔ 30
+lista.agregar_final("A")   # Lista: 10
+lista.agregar_final("B")   # Lista: 10 ↔ 20
+lista.agregar_final("C")   # Lista: 10 ↔ 20 ↔ 30
 
 print("Recorrido Adelante")
 lista.recorrer_adelante()  # Salida esperada: 10, 20, 30
+
+print("Recorrido atras")
+lista.recorrer_atras()
+
+print("Buscar 20: ")
+lista.buscar("A")
 
     
